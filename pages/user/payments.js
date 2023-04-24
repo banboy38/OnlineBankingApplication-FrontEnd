@@ -31,7 +31,6 @@ export default function Payments(){
                     <input type="text" className="w-[80%]" id="payerId"  {...register("payerId")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="From Account"}} placeholder="From Account"/>
                     <input type="text" className="w-[80%]" id="payeeId"  {...register("payeeId")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="To Account"}} placeholder="To Account"/>
                     <input type="text" className="w-[80%]" id="amount"  {...register("amount")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="Amount"}} placeholder="Amount"/>
-                    <input type="date" className="w-[80%]" id="transactionDate"  {...register("transactionDate")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="Transaction Date"}} placeholder="Transaction Date"/>
                     <input type="text" className="w-[80%]" id="remarks"  {...register("remarks")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="Remarks (If any)"}} placeholder="Remarks (If any)"/>
                     <div className="flex justify-between items-center w-[80%]"><button className="forgotPassword">Reset</button> <button className="submit w-1/2">Continue</button></div>
                 </form>
