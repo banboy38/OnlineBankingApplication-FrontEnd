@@ -90,3 +90,32 @@ input[type=date]:focus{
   background-color: #2a7fa6;
   color: white;
 }
+
+.box1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   height: 100vh;
+}
+
+.box{
+  
+  height: 25rem;
+  background: #FFFFFF;
+   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.06);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+  
+  gap: 3rem;
+}
+.btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  gap: 1rem;
+  width: 60%;
+}
