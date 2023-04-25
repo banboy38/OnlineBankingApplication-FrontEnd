@@ -18,13 +18,29 @@ export default function Register(props) {
     // event.preventDefault()
     // console.log(formData)
 
-    axios.post("http://localhost:8080/api/user",
-    formData
-    ).then((res)=>{
-      console.log(res)
-    })
+    if(!formData.firstName){
+      document.getElementById("wrongfname").classList.remove("hidden")
+    }
+    else{
+      document.getElementById("wrongfname").classList.add("hidden")
+    }
 
-    router.push('/')
+    if(!formData.lastName){
+      document.getElementById("wronglname").classList.remove("hidden")
+    }
+    else{
+      document.getElementById("wronglname").classList.add("hidden")
+    }
+
+    if(formData.lastName && formData.firstName){
+      axios.post("http://localhost:8080/api/user",
+      formData
+      ).then((res)=>{
+        console.log(res)
+      })
+
+      router.push('/')
+    }
 
 
 
@@ -52,10 +68,16 @@ export default function Register(props) {
       <div className="w-[80%] sm-[60%] md:w-[50%] lg:w-[40%] min-h-[25rem] ease-in-out duration-500 bg-white p-5 rounded flex flex-col justify-center gap-2 items-center shadow-lg">
 
         <div className="text-2xl font-semibold mb-3">Register</div>
-        
+
+            <div id="wrongfname" className="w-[69%] hidden text-xs mb-[-0.5rem] text-red-400">Please enter first name.</div>
             <input type="text" className="w-[70%]" id="firstName"  {...register("firstName")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="First Name"}} placeholder="First Name"/>
+            
             <input type="text" className="w-[70%]" id="middleName" {...register("middleName")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="Middle Name"}} placeholder="Middle Name"/>
+            
+            <div id="wronglname" className="w-[69%] hidden text-xs mb-[-0.5rem] text-red-400">Please enter last name.</div>
             <input type="text" className="w-[70%]" id="lastName" {...register("lastName")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="Last Name"}} placeholder="Last Name"/>
+            
+            
             <input type="text" className="w-[70%]" id="fatherName" {...register("fatherName")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="Father's Name"}} placeholder="Father's Name"/>
             <input type="text" className="w-[70%]" id="aadharNumber" {...register("aadharNumber")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="Aadhaar Number"}} placeholder="Aadhaar Number"/>
             <input type="text" className="w-[70%]" id="mobileNumber" {...register("mobileNumber")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="Mobile"}} placeholder="Mobile"/>

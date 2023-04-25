@@ -9,8 +9,11 @@ export default function Payments(){
     const {register, handleSubmit} = useForm()
 
     const submitTransaction = (formData, event) =>{
+
+
         // console.log(formData)
         // console.log('http://localhost:8080/api/transaction/'+formData.payerId+'/newtransaction')
+        
         axios.post('http://localhost:8080/api/transaction/'+formData.payerId+'/newtransaction', {...formData, transactionType:"TRANSFER"})
         .then((res)=>{
             console.log(res)
@@ -28,8 +31,12 @@ export default function Payments(){
                 <div className="w-[40%]"><Image priority quality={100} alt={'credit card'} src={card}/></div>
 
                 <form onSubmit={handleSubmit(submitTransaction)} className="w-[50%] flex flex-col justify-evenly items-center gap-5">
+                    
+                    
                     <input type="text" className="w-[80%]" id="payerId"  {...register("payerId")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="From Account"}} placeholder="From Account"/>
+                    
                     <input type="text" className="w-[80%]" id="payeeId"  {...register("payeeId")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="To Account"}} placeholder="To Account"/>
+                    
                     <input type="text" className="w-[80%]" id="amount"  {...register("amount")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="Amount"}} placeholder="Amount"/>
                     <input type="text" className="w-[80%]" id="remarks"  {...register("remarks")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="Remarks (If any)"}} placeholder="Remarks (If any)"/>
                     <div className="flex justify-between items-center w-[80%]"><button className="forgotPassword">Reset</button> <button className="submit w-1/2">Continue</button></div>
