@@ -119,3 +119,9 @@ input[type=date]:focus{
   gap: 1rem;
   width: 60%;
 }
+
+.standingLine{
+  height: 2rem;
+  border-color: rgb(212 212 212);
+  border-width: 1px;
+}
