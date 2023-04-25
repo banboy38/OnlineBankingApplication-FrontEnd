@@ -76,7 +76,7 @@ export default function Home(props) {
         <div id="wrongPass" className="w-[69%] hidden text-xs mb-[-0.5rem] text-red-400">Please enter Password.</div>
         <input type="password" className="w-[70%]" id="password" {...register("password")} onFocus={(e)=>{e.target.placeholder = ""}} onBlur={(e)=>{e.target.placeholder="Password"}} placeholder="Password"/>
 
-        <div className="w-[69%] text-xs mt-[-0.5rem] text-cyan-600"><Link className="" href={""}>Forgot Password?</Link></div>
+        <div className="w-[69%] text-xs mt-[-0.5rem] text-cyan-600"><Link className="" href={"/forgotPassword"}>Forgot Password?</Link></div>
 
         <button className="submit  mt-6">Login</button>
         
